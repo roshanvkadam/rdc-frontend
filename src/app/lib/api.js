@@ -3,7 +3,7 @@ const URL = process.env.NEXT_PUBLIC_URL
 const API_SECRET = process.env.NEXT_PUBLIC_API_SECRET;
 
 export async function getComputers() {
-  const res = await fetch(`${URL}/computers`,
+  const res = await fetch(`${URL}/rdc-computers`,
     {
       headers: {
         "x-api-secret": API_SECRET,
@@ -14,7 +14,7 @@ export async function getComputers() {
 }
 
 export const shutdownComputer = async (computerName) => {
-  const response = await fetch(`${URL}/shutdown/${computerName}`, {
+  const response = await fetch(`${URL}/rdc-shutdown/${computerName}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -28,7 +28,7 @@ export const shutdownComputer = async (computerName) => {
 };
 
 export const shutdownAll = async () => {
-  const response = await fetch(`${URL}/shutdown-all`, {
+  const response = await fetch(`${URL}/rdc-shutdown-all`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -42,7 +42,7 @@ export const shutdownAll = async () => {
 };
 
 export const removeComputer = async (computerName) => {
-  const response = await fetch(`${URL}/remove/${computerName}`, {
+  const response = await fetch(`${URL}/rdc-remove/${computerName}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
